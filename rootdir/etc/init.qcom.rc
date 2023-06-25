@@ -226,6 +226,21 @@ on post-fs-data
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
+    # Dolby
+    mkdir /data/vendor/dolby 0770 media media
+    mkdir /data/vendor/multimedia 0775 system system
+
+    chown system system /sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/min_freq
+    chmod 0664 /sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/min_freq
+
+    wait /sys/class/qcom-battery/restrict_cur
+
+    chown system system /sys/class/qcom-battery/restrict_cur
+    chmod 0664 /sys/class/qcom-battery/restrict_cur
+
+    chown root system /dev/cpu_dma_latency
+    chmod 0660 /dev/cpu_dma_latency
+
     setprop vold.post_fs_data_done 1
 
 on property:sys.boot_completed=1
@@ -242,6 +257,9 @@ on property:sys.boot_completed=1
 
     # Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
+
+    # Enable PowerHAL
+    setprop vendor.powerhal.init 1
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
