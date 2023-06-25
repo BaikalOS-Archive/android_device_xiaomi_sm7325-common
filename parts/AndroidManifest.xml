@@ -51,7 +51,7 @@
             android:authorities="${applicationId}.androidx-startup"
             tools:replace="android:authorities"/>
 
-        <activity
+        <!-- activity
             android:name=".thermal.ThermalActivity"
             android:label="@string/thermal_title">
             <intent-filter>
@@ -66,12 +66,12 @@
             <meta-data
                 android:name="com.android.settings.order"
                 android:value="1" />
-        </activity>
+        </activity -->
 
-        <service
+        <!-- service
             android:name=".thermal.ThermalService"
             android:permission="ThermalService">
-        </service>
+        </service -->
 
         <activity
             android:name=".speaker.ClearSpeakerActivity" 
@@ -87,7 +87,7 @@
                 android:resource="@string/clear_speaker_summary" />
         </activity>
 
-        <activity
+        <!-- activity
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
             android:exported="false">
@@ -100,13 +100,13 @@
             <meta-data
                 android:name="com.android.settings.summary"
                 android:resource="@string/refresh_summary" />
-        </activity>
+        </activity -->
 
-        <service
+        <!-- service
             android:name=".refreshrate.RefreshService"
             android:exported="true"
             android:permission="RefreshService">
-        </service>
+        </service -->
 
     </application>
 </manifest>
