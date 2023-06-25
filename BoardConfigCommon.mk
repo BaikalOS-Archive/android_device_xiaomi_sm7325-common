@@ -9,6 +9,8 @@ COMMON_PATH := device/xiaomi/sm7325-common
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 BUILD_BROKEN_DUP_RULES := true
 
+BOARD_VENDOR := xiaomi
+
 # A/B
 AB_OTA_UPDATER := true
 
@@ -46,6 +48,9 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
+AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
+AUDIO_FEATURE_ENABLED_DTS_EAGLE := false
+
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 
@@ -65,7 +70,8 @@ DEVICE_MATRIX_FILE := $(COMMON_PATH)/hidl/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/hidl/vendor_framework_compatibility_matrix.xml \
     $(COMMON_PATH)/hidl/xiaomi_framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    vendor/dolby/vintf/dolby_framework_compatibility_matrix.xml \
+    vendor/lineage/config/device_framework_matrix.xml 
 
 DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/hidl/manifest_lahaina.xml \
